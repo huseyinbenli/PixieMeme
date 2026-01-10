@@ -42,3 +42,53 @@ function renderEmotions(emotionArr) {
   emotionRadios.innerHTML = radioItems;
 }
 renderEmotions(catsData);
+
+// Creating an array of matched emotions by matching emotions from radio inputs and emotionTags
+function getMatchingEmotionArray() {
+  if (document.querySelector('input[type="radio"]:checked')) {
+    const selectedEmotion = document.querySelector(
+      'input[type="radio"]:checked'
+    ).value;
+    const isGif = gifsOnlyOption.checked;
+
+    const matchingCatsArray = catsData.filter(function (cat) {
+      if (isGif) {
+        return cat.emotionTags.includes(selectedEmotion) && cat.isGif;
+      } else {
+        return cat.emotionTags.includes(selectedEmotion);
+      }
+    });
+    return matchingCatsArray;
+  }
+}
+
+// Getting a random object from matched emotions array to render
+function getRandomObj() {
+  let matchedEmotions = getMatchingEmotionArray();
+  console.log(matchedEmotions);
+
+  if (matchedEmotions.length === 1) {
+    return matchedEmotions[0];
+  } else {
+    const randomNumber = Math.floor(Math.random() * matchedEmotions.length);
+    return matchedEmotions[randomNumber];
+  }
+}
+
+// Rendering the random object from getRandomObj
+function render() {
+  const obj = getRandomObj();
+  console.log(obj);
+
+  memeModalInner.innerHTML = `
+    <img
+    class="img"
+    src="./images/${obj.image}"
+    alt="${obj.alt}"
+    >`;
+  memeModal.style.display = "flex";
+}
+
+// Event Listeners
+
+getImageBtn.addEventListener("click", render);
