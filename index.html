@@ -4,13 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
     <title>PixieMeme</title>
   </head>
 
   <body>
     <header class="header">
       <div class="header-img-container">
-        <img src="" alt="" />
+        <img src="./images/logo.png" class="logo" alt="" />
         <div>
           <h2>Pixie The Foxy</h2>
           <h1>Meme Picker</h1>
@@ -31,6 +38,7 @@
             >
             <input type="checkbox" id="gifs-only-option" />
           </div>
+          <p class="no-gifs" id="para">Gifs not found with selected emotion</p>
           <button class="get-image-btn" id="get-image-btn">Get Image</button>
         </div>
       </section>
