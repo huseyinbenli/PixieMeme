@@ -89,6 +89,7 @@ function render() {
   memeModal.style.display = "flex";
 }
 
+// Higlights selected input elements
 function highlightCheckedOption(e) {
   const radios = document.getElementsByClassName("radio");
   for (let radio of radios) {
@@ -97,6 +98,7 @@ function highlightCheckedOption(e) {
   document.getElementById(e.target.id).parentElement.classList.add("highlight");
 }
 
+// Closes image container
 function closeModal() {
   memeModal.style.display = "none";
 }
