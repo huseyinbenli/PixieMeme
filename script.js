@@ -65,7 +65,6 @@ function getMatchingEmotionArray() {
 // Getting a random object from matched emotions array to render
 function getRandomObj() {
   let matchedEmotions = getMatchingEmotionArray();
-  console.log(matchedEmotions);
 
   if (matchedEmotions.length === 1) {
     return matchedEmotions[0];
@@ -78,7 +77,9 @@ function getRandomObj() {
 // Rendering the random object from getRandomObj
 function render() {
   const obj = getRandomObj();
-  console.log(obj);
+  if (!obj) {
+    document.getElementById("para").classList.remove("no-gifs");
+  }
 
   memeModalInner.innerHTML = `
     <img
@@ -101,6 +102,7 @@ function highlightCheckedOption(e) {
 // Closes image container
 function closeModal() {
   memeModal.style.display = "none";
+  document.getElementById("para").classList.add("no-gifs");
 }
 
 // Event Listeners
