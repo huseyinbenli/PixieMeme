@@ -138,3 +138,17 @@ input[type="radio"] {
   margin-bottom: 8px;
   cursor: pointer;
 }
+
+@media (width < 600px) {
+  .meme-modal {
+    display: none;
+    position: fixed;
+    margin: auto;
+    width: 90%;
+  }
+
+  .img {
+    max-width: 350px;
+    max-height: 450px;
+  }
+}
